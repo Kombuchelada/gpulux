@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpulux"
+dynamic = ["version"]
+description = "RGB lighting control on Linux for MSI RTX 40-series graphics cards (RTX 4070 Ti SUPRIM tested)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["rgb", "led", "linux", "gpu", "i2c", "msi", "mystic-light", "nvidia", "rtx-4070-ti", "suprim"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Hardware",
+]
+
+[project.urls]
+Homepage = "https://github.com/Kombuchelada/gpulux"
+Issues = "https://github.com/Kombuchelada/gpulux/issues"
+
+[project.scripts]
+gpulux = "gpulux.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "gpulux.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
